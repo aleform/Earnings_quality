@@ -1,5 +1,7 @@
 library(readxl)
-aida <- read_excel("Downloads/Aida_Export_9.xlsx", sheet = "Risultati")
+library("writexl")
+file.path <- readline(prompt = "Insert file path: ")
+aida <- read_excel(file.path, sheet = "Risultati")
 colnames(aida)[3] <- 'ff12'
 
 int = c()
@@ -114,3 +116,6 @@ df9=df9[-1,]
 df10=df10[-1,]
 df11=df11[-1,]
 df12=df12[-1,]
+
+write_xlsx(aida,"cleanff12.xlsx")
+
